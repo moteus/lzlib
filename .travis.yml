@@ -32,6 +32,13 @@ before_script:
 # Build the module
 script:
   - ~/_tools/travis/travis build
+  - cd $TRAVIS_BUILD_DIR
+  - /home/travis/build/moteus/lzlib/_test/bin/lua test_zlib3.lua
+  - /home/travis/build/moteus/lzlib/_test/bin/lua test_zlib2.lua
+  - /home/travis/build/moteus/lzlib/_test/bin/lua test_prologue.lua
+  - /home/travis/build/moteus/lzlib/_test/bin/lua test_gzip.lua
+  - /home/travis/build/moteus/lzlib/_test/bin/lua test_crc32.lua
+
 
 # Execute additional tests or commands
 after_script:
@@ -40,7 +47,7 @@ after_script:
 # Only watch the master branch
 branches:
   only:
-    - master
+    - moteus
 
 # Notify the LuaDist Dev group if needed
 notifications:
